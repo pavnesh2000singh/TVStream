@@ -5,6 +5,12 @@ protocol ContentRemoteDataSourceProtocol: Sendable {
 }
 
 struct ContentRemoteDataSource: ContentRemoteDataSourceProtocol {
+    private let apiClient: any APIClientProtocol
+
+    init(apiClient: any APIClientProtocol) {
+        self.apiClient = apiClient
+    }
+
     func fetchFeaturedContent() async throws -> [StreamContentDTO] {
         []
     }
