@@ -8,13 +8,13 @@ struct AppDependencyContainer {
 
     static func live() -> AppDependencyContainer {
         let apiClient = APIClient()
-        let remoteDataSource = ContentRemoteDataSource(apiClient: apiClient)
+        let contentRepository = MockContentRepository()
 
         return AppDependencyContainer(
             router: AppRouter(),
             themeManager: ThemeManager(),
             apiClient: apiClient,
-            contentRepository: DefaultContentRepository(remoteDataSource: remoteDataSource)
+            contentRepository: contentRepository
         )
     }
 }

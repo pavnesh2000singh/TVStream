@@ -6,7 +6,7 @@ struct TVStreamApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(dependencies: dependencies)
                 .environment(dependencies.router)
                 .environment(dependencies.themeManager)
         }
